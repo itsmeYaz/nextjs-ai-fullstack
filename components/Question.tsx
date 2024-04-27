@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { askQuestion } from "@/utils/api";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const Question = () => {
   const [value, setValue] = useState("");
@@ -26,21 +28,17 @@ const Question = () => {
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>
-        <input
+        <Input
           disabled={loading}
           type="text"
           onChange={onChange}
           value={value}
-          placeholder="Ask a question"
-          className="border border-black/20 px-4 py-2 text-lg rounded-lg"
+          placeholder="Ask AI about your moods.✨"
         />
-        <button
-          disabled={loading}
-          type="submit"
-          className="bg-blue-400 px-4 py-1 rounded-lg text-lg"
-        >
+
+        <Button disabled={loading} type="submit" className="px-6 mt-3">
           Ask
-        </button>
+        </Button>
       </form>
       {loading && <div>Looking for answer...</div>}
 

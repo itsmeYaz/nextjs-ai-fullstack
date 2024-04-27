@@ -40,7 +40,7 @@ const Editor = ({ entry }) => {
 
       <div className="border-l border-black/10">
         <div className="px-6 py-10" style={{ backgroundColor: color }}>
-          <h2 className="text-2xl">Analysis</h2>
+          <h2 className="text-2xl text-center">Analysis</h2>
         </div>
         <div>
           <ul>
@@ -48,9 +48,11 @@ const Editor = ({ entry }) => {
               return (
                 <li
                   key={item.name}
-                  className="px-2 py-4 flex items-center justify-between border-b border-t border-black/10"
+                  className="px-2 py-4 border-b border-t border-black/10"
                 >
-                  <span className="text-lg font-semibold">{item.name}</span>
+                  <span className="text-lg font-semibold block">
+                    {item.name} :
+                  </span>
                   <span>{item.value}</span>
                 </li>
               );

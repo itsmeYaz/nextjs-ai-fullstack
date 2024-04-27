@@ -4,6 +4,13 @@ import NewEntryCard from "@/components/NewEntryCard";
 import EntryCard from "@/components/EntryCard";
 import Link from "next/link";
 import Question from "@/components/Question";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const getEntries = async () => {
   const user = await getUserByClerkID();
@@ -19,6 +26,11 @@ const getEntries = async () => {
   return entries;
 };
 
+const formatDate = (entry) => {
+  const date = new Date(entry).toDateString();
+  return date;
+};
+
 const JournalPage = async () => {
   const entries = await getEntries();
   console.log("entries: ", entries);
@@ -32,7 +44,20 @@ const JournalPage = async () => {
         <NewEntryCard />
         {entries.map((entry) => (
           <Link href={`/journal/${entry.id}`} key={entry.id}>
-            <EntryCard entry={entry} />
+            <Card
+              key={entry.id}
+              className="transition-all duration-200 ease-in-out hover:bg-black hover:text-white"
+            >
+              <CardHeader>
+                <CardTitle>{formatDate(entry.createdAt)}</CardTitle>
+                <CardDescription>
+                  Last update: {formatDate(entry.updatedAt)}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-yellow-500">Click to show entry.</p>
+              </CardContent>
+            </Card>
           </Link>
         ))}
       </div>

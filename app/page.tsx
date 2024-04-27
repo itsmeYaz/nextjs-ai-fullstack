@@ -14,7 +14,7 @@ export default async function Home() {
           you have to do is to be honest
         </p>
         <Link href={href}>
-          <button className="bg-blue-600 px-4 py-2 rounded-lg text-xl">
+          <button className="px-4 py-2 rounded-lg text-xl bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
             get started
           </button>
         </Link>
